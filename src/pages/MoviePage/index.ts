@@ -1,1 +1,2 @@
-export * as default from "./MoviePage";
+import MoviePage from "./MoviePage";
+export default MoviePage;
