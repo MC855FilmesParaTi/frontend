@@ -9,24 +9,24 @@ import { MoviePage } from "./pages";
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <HomePage />,
-    element: (
-      <div>
-        <HomePage />
-        <MoviePage
-          Poster="https://news.artnet.com/app/news-upload/2015/04/lf-256x256.jpg"
-          Year="2022"
-          Duration="2h03min"
-          Director="Tarantino"
-          Writer="J.K. Rowling"
-          Stars="Sun, Andrômeda, Sirius"
-          About="I have no idea, watch to discover!"
-          imdbScore="9.7"
-          Popularity="167"
-          PopularityDelta="-21"
-        />
-      </div>
-    ),
+    element: <HomePage />,
+    // element: (
+    //   <div>
+    //     <HomePage />
+    //     <MoviePage
+    //       Poster="https://news.artnet.com/app/news-upload/2015/04/lf-256x256.jpg"
+    //       Year="2022"
+    //       Duration="2h03min"
+    //       Director="Tarantino"
+    //       Writer="J.K. Rowling"
+    //       Stars="Sun, Andrômeda, Sirius"
+    //       About="I have no idea, watch to discover!"
+    //       imdbScore="9.7"
+    //       Popularity="167"
+    //       PopularityDelta="-21"
+    //     />
+    //   </div>
+    // ),
   },
 ]);
 
