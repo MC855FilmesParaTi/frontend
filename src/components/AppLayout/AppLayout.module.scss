@@ -40,7 +40,8 @@
 
   .Main {
     grid-area: main;
-    background-color: var(--background-color);
+    //background-color: var(--background-color);
+    background: radial-gradient(ellipse, #3a4983 0%, #141a30 60%);
     margin: 0;
     padding: 0;
   }
