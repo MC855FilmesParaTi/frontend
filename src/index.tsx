@@ -3,13 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.module.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { HomePage, LoginPage, SearchResultsPage } from "./pages";
+import { LoginPage, SearchResultsPage } from "./pages";
+import HomePage, { loader as HomeLoader } from "pages/HomePage/HomePage";
 import MoviePage, { loader as MovieLoader } from "./pages/MoviePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+    loader: HomeLoader,
     // element: (
     //   <div>
     //     <HomePage />

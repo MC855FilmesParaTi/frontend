@@ -19,7 +19,12 @@ const MoviePage = ({}: MoviePageProps) => {
 
   return (
     <div className="moviePage">
-      {movieData && <MovieListHeading heading={movieData.title} />}
+      {movieData && (
+        <>
+          <MovieListHeading heading={movieData.title} />
+          <img src={movieData.poster} />
+        </>
+      )}
       {/* TODO: use the right movieData properties */}
       {/* <PosterInfo
         Poster={movieData.Poster}
