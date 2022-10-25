@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.module.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { HomePage } from "./pages";
-import { MoviePage } from "./pages";
+import { HomePage, LoginPage, SearchResultsPage } from "./pages";
+import MoviePage, { loader as MovieLoader } from "./pages/MoviePage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +27,20 @@ const router = createBrowserRouter([
     //     />
     //   </div>
     // ),
+  },
+  {
+    path: "/movie/:movieId",
+    element: <MoviePage />,
+    loader: MovieLoader,
+  },
+  {
+    path: "/search",
+    element: <SearchResultsPage />,
+  },
+
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
 ]);
 
