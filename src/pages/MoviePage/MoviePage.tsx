@@ -7,6 +7,7 @@ import RatingBox from "../../components/RatingBox";
 import FilmDescription from "../../components/FilmDescription";
 import MovieListHeading from "../../components/MovieListHeading";
 import { getMovieInfo, MovieInfo } from "services/filmesPraTi";
+import AppLayout from "components/AppLayout";
 
 export async function loader({ params }: { params: any }) {
   return getMovieInfo(params.movieId);
@@ -18,15 +19,16 @@ const MoviePage = ({}: MoviePageProps) => {
   const movieData: MovieInfo = useLoaderData() as MovieInfo;
 
   return (
-    <div className="moviePage">
-      {movieData && (
-        <>
-          <MovieListHeading heading={movieData.title} />
-          <img src={movieData.poster} />
-        </>
-      )}
-      {/* TODO: use the right movieData properties */}
-      {/* <PosterInfo
+    <AppLayout>
+      <div className="moviePage">
+        {movieData && (
+          <>
+            <MovieListHeading heading={movieData.title} />
+            <img src={movieData.poster} />
+          </>
+        )}
+        {/* TODO: use the right movieData properties */}
+        {/* <PosterInfo
         Poster={movieData.Poster}
         Year={movieData.Year}
         Duration={movieData.Duration}
@@ -42,7 +44,8 @@ const MoviePage = ({}: MoviePageProps) => {
         Stars={movieData.Stars}
         About={movieData.About}
       /> */}
-    </div>
+      </div>
+    </AppLayout>
   );
 };
 
