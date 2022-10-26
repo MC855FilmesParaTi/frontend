@@ -2,6 +2,8 @@
 import React from "react";
 
 const RatingBox = (props) => {
+  console.log("rating box ", props);
+
   return (
     <div className="rating-container">
       <div className="imdb-rating">

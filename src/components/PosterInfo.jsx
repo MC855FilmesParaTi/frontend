@@ -1,5 +1,4 @@
 // MoviePage
-import React from "react";
 
 const PosterInfo = (props) => {
   console.log("poster info", props);

@@ -1,6 +1,7 @@
 // MoviePage
 
 const FilmDescription = (props) => {
+  console.log("filmDescription ", props);
   return (
     <div>
       <p>

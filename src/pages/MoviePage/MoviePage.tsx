@@ -24,25 +24,23 @@ const MoviePage = ({}: MoviePageProps) => {
         {movieData && (
           <>
             <MovieListHeading heading={movieData.title} />
-            <img src={movieData.poster} />
           </>
         )}
-        {/* TODO: use the right movieData properties */}
         <PosterInfo
-          Poster={movieData.poster}
-          Year={movieData.year}
-          Duration={movieData.duration}
+          poster={movieData.poster}
+          year={movieData.year}
+          duration={movieData.duration}
         />
         <RatingBox
           imdbScore={movieData.imdbScore}
-          Popularity={movieData.popularity}
-          PopularityDelta={movieData.popularityDelta}
+          popularity={movieData.popularity}
+          popularityDelta={movieData.popularityDelta}
         />
         <FilmDescription
-          Director={movieData.directors}
-          Writer={movieData.writers}
-          Stars={movieData.starActors}
-          About={movieData.description}
+          directors={movieData.directors}
+          writers={movieData.writers}
+          starActors={movieData.starActors}
+          description={movieData.description}
         />
       </div>
     </AppLayout>
