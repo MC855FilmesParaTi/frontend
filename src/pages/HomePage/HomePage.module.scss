@@ -13,6 +13,113 @@
   pointer-events: none;
 }
 
+/////
+
+.movRecs {
+  margin: 20px 5% 20px 5%;
+}
+
+.refreshButton svg {
+  fill: #d61c4e;
+}
+
+.refreshButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: 12px;
+}
+
+.rec-group-name {
+  display: table-row-group;
+  text-align: left;
+  position: relative;
+  font-size: 2.5rem;
+}
+
+.MovieCard {
+  position: relative;
+  /* width: 20%; */
+}
+
+.MovieCard:hover {
+  transform: scale(1.2);
+}
+
+.MovieCard__img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.recommendations {
+  /* width: fit-content; */
+  display: table;
+  margin: 35px 0;
+}
+.recommendations a {
+  width: 15%;
+  float: left;
+  padding: 3% 5% 0% 0%;
+}
+
+.MovieCard__overlay {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  //background: rgba(0, 0, 0, 0.6);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 30%,
+    rgb(0 0 0 / 90%)
+  );
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  opacity: 0;
+  transition: opacity 0.25s;
+  border-radius: 20px;
+  border: 0.3rem solid #79dfff;
+}
+
+.MovieCard__overlay--blur {
+  backdrop-filter: blur(5px);
+}
+
+.MovieCard__overlay--primary {
+  background: #009578;
+}
+
+.MovieCard__overlay > * {
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.MovieCard__overlay:hover {
+  opacity: 1;
+}
+
+.MovieCard__overlay:hover > * {
+  transform: translateY(0);
+}
+
+.MovieCard__title {
+  font-size: 130%;
+  //font-weight: bold;
+  margin-bottom: 10%;
+}
+
+.MovieCard__description {
+  font-size: 1.25em;
+  margin-top: 0.25em;
+}
+
 // .App-header {
 //   // background: radial-gradient(ellipse, #3a4983 0%, #141a30 60%);
 //   min-height: 100vh;
@@ -24,7 +131,7 @@
 //   color: white;
 // }
 
-.App-link {
+/* .App-link {
   color: #61dafb;
 }
 
@@ -36,3 +143,4 @@
     transform: rotate(360deg);
   }
 }
+ */
