@@ -22,8 +22,8 @@ const RatingBox = (props) => {
       <div className="popularity">
         <p>POPULARITY</p>
         <p>
-          <strong>{props.Popularity}</strong>{" "}
-          <mark>{props.PopularityDelta}</mark>
+          <strong>{props.popularity}</strong>{" "}
+          <mark>{props.popularityDelta}</mark>
         </p>
       </div>
     </div>

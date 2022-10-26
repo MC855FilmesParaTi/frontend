@@ -1,6 +1,5 @@
 // HommePage
 
-import React from "react";
 import Header from "../../components/Header";
 import styles from "./HomePage.module.scss";
 import MovieList from "../../components/MovieList";

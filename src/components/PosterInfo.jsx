@@ -6,9 +6,9 @@ const PosterInfo = (props) => {
 
   return (
     <div id="PosterInfo">
-      <img src={props.Poster} alt="movie"></img>
+      <img src={props.poster} alt="movie"></img>
       <p>
-        {props.Year} <span>&#8729;</span> {props.Duration}
+        {props.year} <span>&#8729;</span> {props.duration}
       </p>
     </div>
   );

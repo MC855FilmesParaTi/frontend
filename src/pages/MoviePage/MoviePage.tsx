@@ -17,7 +17,7 @@ interface MoviePageProps {}
 
 const MoviePage = ({}: MoviePageProps) => {
   const movieData: MovieInfo = useLoaderData() as MovieInfo;
-
+  console.log("movie page: ", movieData);
   return (
     <AppLayout>
       <div className="moviePage">
@@ -28,22 +28,22 @@ const MoviePage = ({}: MoviePageProps) => {
           </>
         )}
         {/* TODO: use the right movieData properties */}
-        {/* <PosterInfo
-        Poster={movieData.Poster}
-        Year={movieData.Year}
-        Duration={movieData.Duration}
-      />
-      <RatingBox
-        imdbScore={movieData.imdbScore}
-        Popularity={movieData.Popularity}
-        PopularityDelta={movieData.PopularityDelta}
-      />
-      <FilmDescription
-        Director={movieData.Director}
-        Writer={movieData.Writer}
-        Stars={movieData.Stars}
-        About={movieData.About}
-      /> */}
+        <PosterInfo
+          Poster={movieData.poster}
+          Year={movieData.year}
+          Duration={movieData.duration}
+        />
+        <RatingBox
+          imdbScore={movieData.imdbScore}
+          Popularity={movieData.popularity}
+          PopularityDelta={movieData.popularityDelta}
+        />
+        <FilmDescription
+          Director={movieData.directors}
+          Writer={movieData.writers}
+          Stars={movieData.starActors}
+          About={movieData.description}
+        />
       </div>
     </AppLayout>
   );

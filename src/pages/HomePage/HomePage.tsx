@@ -17,13 +17,12 @@ const HomePage = ({}: HomePageProperties) => {
     <AppLayout>
       <div className={styles.App}>
         <img src={logo} className={styles["App-logo"]} alt="logo" />
-        <p>HomePage</p>
         <div>
-          {recommendations.map((rec) => (
-            <>
-              <h2>{rec.recName}</h2>
-              {rec.recList.map((movie) => (
-                <Link to={`/movie/${movie.id}`}>
+          {recommendations.map((rec, index) => (
+            <div key={index}>
+              <h2 key={index}>{rec.recName}</h2>
+              {rec.recList.map((movie, indexMovie) => (
+                <Link to={`/movie/${movie.id}`} key={indexMovie}>
                   <h2>{movie.title}</h2>
                   <img
                     src={movie.poster}
@@ -31,7 +30,7 @@ const HomePage = ({}: HomePageProperties) => {
                   />
                 </Link>
               ))}
-            </>
+            </div>
           ))}
         </div>
       </div>

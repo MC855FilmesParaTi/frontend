@@ -1,21 +1,19 @@
 // MoviePage
 
-import React from "react";
-
 const FilmDescription = (props) => {
   return (
     <div>
       <p>
-        <strong>Director</strong> {props.Director}
+        <strong>Directors</strong> {props.directors}
       </p>
       <p>
-        <strong>Writer</strong> {props.Writer}
+        <strong>Writers</strong> {props.writers}
       </p>
       <p>
-        <strong>Stars</strong> {props.Stars}
+        <strong>Stars</strong> {props.starActors}
       </p>
       <p>
-        <strong>About</strong> {props.About}
+        <strong>About</strong> {props.description}
       </p>
     </div>
   );
