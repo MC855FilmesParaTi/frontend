@@ -1,11 +1,10 @@
 // MoviePage
 import React from "react";
+import styles from "./RatingBox.module.scss";
 
 const RatingBox = (props) => {
-  console.log("rating box ", props);
-
   return (
-    <div className="rating-container">
+    <div className={`${props.className} ${styles.RatingBox}`}>
       <div className="imdb-rating">
         <p>IMDB RATING</p>
         <p>

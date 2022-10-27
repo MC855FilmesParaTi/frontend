@@ -1,2 +1,41 @@
 .MoviePage {
+  text-align: center;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  margin: 20px;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  grid-template:
+    "poster info" 1fr
+    / 1fr 2fr;
+
+  .PosterContainer {
+    grid-area: poster;
+    min-width: 0;
+  }
+
+  .InfoContainer {
+    grid-area: info;
+    min-width: 0;
+    display: grid;
+    grid-template:
+      "title" 64px
+      "ratings" 256px
+      "description" 1fr
+      / 1fr;
+
+    .Title {
+      grid-area: title;
+    }
+    .RatingBox {
+      grid-area: ratings;
+    }
+    .Description {
+      min-height: 0;
+      grid-area: description;
+    }
+  }
 }

@@ -3,7 +3,7 @@
 import Header from "../../components/Header";
 import styles from "./HomePage.module.scss";
 import MovieList from "../../components/MovieList";
-import MovieListHeading from "../../components/MovieListHeading";
+import MovieListHeading from "../../components/MovieHeading";
 
 const HomePage = () => {
   const movie = {

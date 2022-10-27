@@ -5,7 +5,7 @@ import styles from "./MoviePage.module.scss";
 import PosterInfo from "../../components/PosterInfo";
 import RatingBox from "../../components/RatingBox";
 import FilmDescription from "../../components/FilmDescription";
-import MovieListHeading from "../../components/MovieListHeading";
+import MovieHeading from "../../components/MovieHeading";
 import { getMovieInfo, MovieInfo } from "services/filmesPraTi";
 import AppLayout from "components/AppLayout";
 
@@ -20,28 +20,37 @@ const MoviePage = ({}: MoviePageProps) => {
   console.log("movie page: ", movieData);
   return (
     <AppLayout>
-      <div className="moviePage">
+      <div className={styles.MoviePage}>
         {movieData && (
           <>
-            <MovieListHeading heading={movieData.title} />
+            <div className={styles.PosterContainer}>
+              <PosterInfo
+                poster={movieData.poster}
+                year={movieData.year}
+                duration={movieData.duration}
+              />
+            </div>
+            <div className={styles.InfoContainer}>
+              <MovieHeading
+                className={styles.Title}
+                heading={movieData.title}
+              />
+              <RatingBox
+                className={styles.RatingBox}
+                imdbScore={movieData.imdbScore}
+                popularity={movieData.popularity}
+                popularityDelta={movieData.popularityDelta}
+              />
+              <FilmDescription
+                className={styles.Description}
+                directors={movieData.directors}
+                writers={movieData.writers}
+                starActors={movieData.starActors}
+                description={movieData.description}
+              />
+            </div>
           </>
         )}
-        <PosterInfo
-          poster={movieData.poster}
-          year={movieData.year}
-          duration={movieData.duration}
-        />
-        <RatingBox
-          imdbScore={movieData.imdbScore}
-          popularity={movieData.popularity}
-          popularityDelta={movieData.popularityDelta}
-        />
-        <FilmDescription
-          directors={movieData.directors}
-          writers={movieData.writers}
-          starActors={movieData.starActors}
-          description={movieData.description}
-        />
       </div>
     </AppLayout>
   );

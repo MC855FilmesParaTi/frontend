@@ -1,9 +1,9 @@
 // MoviePage
+import styles from "./FilmDescription.module.scss";
 
 const FilmDescription = (props) => {
-  console.log("filmDescription ", props);
   return (
-    <div>
+    <div className={`${props.className} ${styles.FilmDescription}`}>
       <p>
         <strong>Directors</strong> {props.directors}
       </p>

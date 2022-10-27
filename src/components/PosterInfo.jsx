@@ -1,8 +1,6 @@
 // MoviePage
 
 const PosterInfo = (props) => {
-  console.log("poster info", props);
-
   return (
     <div id="PosterInfo">
       <img src={props.poster} alt="movie"></img>
