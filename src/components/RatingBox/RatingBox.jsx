@@ -5,13 +5,13 @@ import styles from "./RatingBox.module.scss";
 const RatingBox = (props) => {
   return (
     <div className={`${props.className} ${styles.RatingBox}`}>
-      <div className="imdb-rating">
+      <div className={styles.Imdb}>
         <p>IMDB RATING</p>
         <p>
           <strong>{props.imdbScore}</strong>/10
         </p>
       </div>
-      <div className="user-vote">
+      <div className={styles.Vote}>
         <p>GIVE IT YOUR VOTE</p>
         <button type="button" className="like">
           like
@@ -20,7 +20,7 @@ const RatingBox = (props) => {
           dislike
         </button>
       </div>
-      <div className="popularity">
+      <div className={styles.Popularity}>
         <p>POPULARITY</p>
         <p>
           <strong>{props.popularity}</strong>{" "}
