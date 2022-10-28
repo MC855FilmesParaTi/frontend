@@ -2,7 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 
 import styles from "./MoviePage.module.scss";
-import PosterInfo from "../../components/PosterInfo";
+import PosterInfo from "../../components/PosterInfo/PosterInfo";
 import RatingBox from "../../components/RatingBox";
 import FilmDescription from "../../components/FilmDescription";
 import MovieHeading from "../../components/MovieHeading";

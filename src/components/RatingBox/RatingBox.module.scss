@@ -5,33 +5,3 @@
   margin: 0;
   gap: 32px;
 }
-
-// .RatingBox {
-//   color: #aaaaaa;
-//   display: grid;
-//   text-align: center;
-//   grid-template:
-//     "imdb vote popularity" auto
-//     / auto 196px 196px;
-
-//   .Imdb {
-//     grid-area: imdb;
-//     p {
-//       margin: 0;
-//       display: inline;
-//     }
-//     align-items: flex-start;
-//     flex-direction: column;
-//     display: inline-flex;
-//     justify-content: space-evenly;
-//     min-width: 0;
-//   }
-//   .Vote {
-//     grid-area: vote;
-//     min-width: 0;
-//   }
-//   .Popularity {
-//     grid-area: popularity;
-//     min-width: 0;
-//   }
-// }
