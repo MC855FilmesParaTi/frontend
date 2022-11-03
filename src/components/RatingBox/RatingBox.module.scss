@@ -1,7 +1,55 @@
+:root {
+  --background-color: #141a30;
+  --primary-color: #d61c4e;
+  --secondary-color: #feb139;
+  --accent-color: #fff80a;
+  --white-color: #ffffff;
+  --black-color: #000000;
+
+  color: var(--white-color);
+}
+
 .RatingBox {
   color: #aaaaaa;
   display: inline-flex;
   text-align: center;
   margin: 0;
   gap: 32px;
+}
+
+.imdb {
+  .imdbScore {
+    color: white;
+    size: larger;
+  }
+}
+
+.popularityDelta {
+  background-color: transparent;
+  font-size: smaller;
+  color: rgb(0, 145, 255);
+}
+
+.popularityDelta#increased {
+  color: rgb(10, 200, 10);
+}
+.popularityDelta#decreased {
+  color: red;
+}
+
+.vote {
+  button {
+    background-color: var(--secondary-color);
+    border: 3px solid black;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+  }
+  button:hover {
+    background-color: var(--accent-color);
+  }
+  .like {
+    img {
+      width: 50px;
+    }
+  }
 }

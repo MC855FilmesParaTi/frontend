@@ -23,75 +23,29 @@ const MoviePage = ({}: MoviePageProps) => {
       <div className={styles.MoviePage}>
         {movieData && (
           <>
-            <div className={styles.PosterContainer}>
-              <img src={movieData.poster} />
-              <div>
-                {movieData.year} <span>&#8729;</span> {movieData.duration}
-              </div>
-              {/* <PosterInfo
-                poster={movieData.poster}
-                year={movieData.year}
-                duration={movieData.duration}
-              /> */}
-            </div>
+            <PosterInfo
+              className={styles.PosterContainer}
+              poster={movieData.poster}
+              year={movieData.year}
+              duration={movieData.duration}
+            />
+
             <h1 className={styles.TitleContainer}>{movieData.title}</h1>
-            <div className={styles.RatingsContainer}>
-              <div className={styles.Imdb}>
-                <p>IMDB RATING</p>
-                <p>
-                  <strong>{movieData.imdbScore}</strong>/10
-                </p>
-              </div>
-              <div className={styles.Vote}>
-                <p>GIVE IT YOUR VOTE</p>
-                <button type="button" className="like">
-                  like
-                </button>
-                <button type="button" className="dislike">
-                  dislike
-                </button>
-              </div>
-              <div className={styles.Popularity}>
-                <p>POPULARITY</p>
-                <p>
-                  <strong>{movieData.popularity}</strong>{" "}
-                  <mark>{movieData.popularityDelta}</mark>
-                </p>
-              </div>
-            </div>
-            <div className={styles.DescriptionContainer}>
-              <p>
-                <strong>Directors</strong> {movieData.directors}
-              </p>
-              <p>
-                <strong>Writers</strong> {movieData.writers}
-              </p>
-              <p>
-                <strong>Stars</strong> {movieData.starActors}
-              </p>
-              <p>
-                <strong>About</strong> {movieData.description}
-              </p>
-            </div>
-            {/* <div className={styles.InfoContainer}>
-              <MovieHeading
-                className={styles.Title}
-                heading={movieData.title}
-              />
-              <RatingBox
-                className={styles.RatingBox}
-                imdbScore={movieData.imdbScore}
-                popularity={movieData.popularity}
-                popularityDelta={movieData.popularityDelta}
-              />
-              <FilmDescription
-                className={styles.Description}
-                directors={movieData.directors}
-                writers={movieData.writers}
-                starActors={movieData.starActors}
-                description={movieData.description}
-              />
-            </div> */}
+
+            <RatingBox
+              className={styles.RatingsContainer}
+              imdbScore={movieData.imdbScore}
+              popularity={movieData.popularity}
+              popularityDelta={movieData.popularityDelta}
+            />
+
+            <FilmDescription
+              className={styles.DescriptionContainer}
+              directors={movieData.directors}
+              writers={movieData.writers}
+              starActors={movieData.starActors}
+              description={movieData.description}
+            />
           </>
         )}
       </div>

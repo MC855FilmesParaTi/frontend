@@ -3,7 +3,7 @@ import styles from "./FilmDescription.module.scss";
 
 const FilmDescription = (props) => {
   return (
-    <div className={`${props.className} ${styles.FilmDescription}`}>
+    <div className={props.className}>
       <p>
         <strong>Directors</strong> {props.directors}
       </p>

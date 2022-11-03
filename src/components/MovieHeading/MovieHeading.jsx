@@ -1,5 +1,4 @@
 // HomePage
-import React from "react";
 import styles from "./MovieHeading.module.scss";
 
 const MovieHeading = (props) => {
