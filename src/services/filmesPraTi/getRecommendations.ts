@@ -17,44 +17,19 @@ export interface RecommendationType {
   }>;
 }
 
-export const getRecommendations = (): Array<RecommendationType> => {
-  return [
+export const getRecommendations = async (
+  token: string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY4NzA5MTU5LCJpYXQiOjE2Njg2MzcxNTksImp0aSI6ImY5YWNiN2IzYWI4YjRjZmI4ZmQxYzdjNTlhYWY5NjVlIiwidXNlcl9pZCI6Mn0.1upyzeUMbgv1qLLvXfeu4rp9PXJ14HJMzWDvDdKx7UQ"
+): Promise<Array<RecommendationType>> => {
+  const response = await fetch(
+    "https://filmes-pra-ti.azurewebsites.net/posts/recommendations/",
     {
-      recName: "Surprise me",
-      recList: [
-        {
-          id: "tt0120338",
-          title: "Titanic",
-          poster:
-            "https://m.media-amazon.com/images/M/MV5BOTdlZGJiNDUtODUyMi00ODQyLTgwNDEtNmI5MzZlZmZlOWQ5XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_QL75_UY562_CR2,0,380,562_.jpg",
-          minage: "14",
-          duration: "2h35min",
-          imdbScore: "9.5",
-          year: "2002",
-          popularity: "101",
-          popularityDelta: "-34",
-          directors: "Kobe Bryant",
-          writers: "Laurentino Gomes",
-          starActors: "Lady Gaga, Jim Carry",
-          description: "this is a description",
-        },
-        {
-          id: "tt0137523",
-          title: "Fight Club",
-          poster:
-            "https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_FMjpg_UX1000_.jpg",
-          minage: "16",
-          duration: "5h35min",
-          imdbScore: "9.5",
-          year: "2002",
-          popularity: "101",
-          popularityDelta: "-34",
-          directors: "Kobe Bryant",
-          writers: "Laurentino Gomes",
-          starActors: "Lady Gaga, Jim Carry",
-          description: "this is a description",
-        },
-      ],
-    },
-  ];
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return response.json() as unknown as Array<RecommendationType>;
 };

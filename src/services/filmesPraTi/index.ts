@@ -7,3 +7,4 @@ export type Score = ScoreType;
 export { getMovieInfo } from "./getMovieInfo";
 export { getRecommendations } from "./getRecommendations";
 export { setMovieScore } from "./setMovieScore";
+export { signUp } from "./signUp";
