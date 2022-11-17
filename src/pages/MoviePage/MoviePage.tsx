@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, redirect } from "react-router-dom";
 
 import styles from "./MoviePage.module.scss";
 import PosterInfo from "../../components/PosterInfo/PosterInfo";
@@ -10,6 +10,9 @@ import { getMovieInfo, MovieInfo } from "services/filmesPraTi";
 import AppLayout from "components/AppLayout";
 
 export async function loader({ params }: { params: any }) {
+  if (!localStorage.getItem("userToken")) {
+    return redirect("/login");
+  }
   return getMovieInfo(params.movieId);
 }
 

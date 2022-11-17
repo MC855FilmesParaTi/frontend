@@ -1,11 +1,14 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, redirect, useLoaderData } from "react-router-dom";
 /* import logo from "assets/Logo.png"; */
 import styles from "./HomePage.module.scss";
 import AppLayout from "components/AppLayout";
 import { getRecommendations, Recommendation } from "services/filmesPraTi";
 
 export async function loader({ params }: { params: any }) {
+  if (!localStorage.getItem("userToken")) {
+    return redirect("/login");
+  }
   return getRecommendations();
 }
 
