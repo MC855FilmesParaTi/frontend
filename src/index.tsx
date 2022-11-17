@@ -7,6 +7,7 @@ import { SearchResultsPage } from "./pages";
 import HomePage, { loader as HomeLoader } from "pages/HomePage/HomePage";
 import MoviePage, { loader as MovieLoader } from "./pages/MoviePage";
 import LoginPage from "./pages/LoginPage";
+import SignUpPage from "pages/SignUpPage";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignUpPage />,
   },
 ]);
 

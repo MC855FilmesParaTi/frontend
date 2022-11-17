@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { login } from "services/filmesPraTi";
+import { signUp } from "services/filmesPraTi";
 import logo from "assets/Logo.png";
 
-import styles from "./LoginPage.module.scss";
+import styles from "./SignUpPage.module.scss";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [passwordConf, setPasswordConf] = useState<string>("");
+  const [profileName, setProfileName] = useState<string>("");
   const navigate = useNavigate();
   useEffect(() => {
     if (!!localStorage.getItem("userToken")) {
@@ -17,18 +19,37 @@ const LoginPage = () => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (ev) => {
     ev.preventDefault();
-    if (!password || !email) {
+    if (!password || !passwordConf || !email || !profileName) {
       alert("Please make sure all fields are filled in correctly.");
       return;
     }
-    const loginResponse = await login(email, password);
-    localStorage.setItem("userToken", loginResponse.tokens.access);
-    navigate("/");
+    if (password !== passwordConf) {
+      alert("Diferent Passwords");
+      setPassword("");
+      setPasswordConf("");
+    } else {
+      const signUpResponse = await signUp(email, profileName, password);
+      localStorage.setItem("userToken", signUpResponse.tokens.access);
+      navigate("/");
+    }
+    return;
   };
   return (
-    <div className={styles.LoginPage}>
+    <div className={styles.SignUpPage}>
       <form onSubmit={handleSubmit}>
         <img className={styles.Logo} src={logo} alt="Logo do FilmesPraTi"></img>
+        <div className={styles.PageTitle}>Create Account</div>
+        <div>
+          {/* <label htmlFor="emailInput">Email:</label> */}
+          <input
+            id="profileNameInput"
+            className={styles.FormField}
+            type="text"
+            placeholder="Profile Name"
+            value={profileName}
+            onChange={(ev) => setProfileName(ev.target.value)}
+          />
+        </div>
         <div>
           {/* <label htmlFor="emailInput">Email:</label> */}
           <input
@@ -51,19 +72,28 @@ const LoginPage = () => {
             onChange={(ev) => setPassword(ev.target.value)}
           />
         </div>
+        <div>
+          {/* <label htmlFor="passwordInput">Password:</label> */}
+          <input
+            id="passwordConfInput"
+            className={styles.FormField}
+            type="password"
+            placeholder="Confirm Password"
+            value={passwordConf}
+            onChange={(ev) => setPasswordConf(ev.target.value)}
+          />
+        </div>
         <button className={styles.SubmitButton} type="submit">
-          Sign In
+          Sign Up
         </button>
-        <Link to="/signup">
+        <Link to="/login">
           <button className={styles.SignUpButton} type="submit">
-            New here? Create an account!
+            Already have an account? Log in!
           </button>
         </Link>
-
-        {/* <input type="submit" className={styles.SubmitButton} /> */}
       </form>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

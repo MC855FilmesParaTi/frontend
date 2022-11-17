@@ -1,4 +1,4 @@
-.LoginPage {
+.SignUpPage {
   color: black;
   display: flex;
   align-items: center;
@@ -41,7 +41,11 @@
       color: #d61c4e;
     }
     .Logo {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
+    }
+    .PageTitle {
+      margin-bottom: 30px;
+      font-size: 2rem;
     }
     .FormField {
       font-size: 1.5rem;
