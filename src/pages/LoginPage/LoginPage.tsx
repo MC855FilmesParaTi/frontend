@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "services/filmesPraTi";
 
@@ -8,6 +8,11 @@ const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!!localStorage.getItem("userToken")) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (ev) => {
     ev.preventDefault();
