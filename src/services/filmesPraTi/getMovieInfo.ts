@@ -14,10 +14,7 @@ export interface MovieInfoType {
   popularityDelta: string;
 }
 
-export const getMovieInfo = async (
-  movieId: string,
-  token: string = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY4NzA5MTU5LCJpYXQiOjE2Njg2MzcxNTksImp0aSI6ImY5YWNiN2IzYWI4YjRjZmI4ZmQxYzdjNTlhYWY5NjVlIiwidXNlcl9pZCI6Mn0.1upyzeUMbgv1qLLvXfeu4rp9PXJ14HJMzWDvDdKx7UQ"
-) => {
+export const getMovieInfo = async (movieId: string) => {
   const response = await fetch(
     `https://filmes-pra-ti.azurewebsites.net/posts/movie_details/?${new URLSearchParams(
       [["movieId", movieId]]
@@ -26,7 +23,7 @@ export const getMovieInfo = async (
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
     }
   );

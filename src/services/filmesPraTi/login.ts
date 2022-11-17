@@ -1,4 +1,16 @@
-export const login = async (email: string, password: string) => {
+export interface LoginResponseType {
+  message: string;
+  username: string;
+  tokens: {
+    access: string;
+    refresh: string;
+  };
+}
+
+export const login = async (
+  email: string,
+  password: string
+): Promise<LoginResponseType> => {
   const reqBody = {
     email,
     password,

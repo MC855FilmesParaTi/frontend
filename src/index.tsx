@@ -3,32 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./index.module.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { LoginPage, SearchResultsPage } from "./pages";
+import { SearchResultsPage } from "./pages";
 import HomePage, { loader as HomeLoader } from "pages/HomePage/HomePage";
 import MoviePage, { loader as MovieLoader } from "./pages/MoviePage";
+import LoginPage from "./pages/LoginPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
     loader: HomeLoader,
-    // element: (
-    //   <div>
-    //     <HomePage />
-    //     <MoviePage
-    //       Poster="https://news.artnet.com/app/news-upload/2015/04/lf-256x256.jpg"
-    //       Year="2022"
-    //       Duration="2h03min"
-    //       Director="Tarantino"
-    //       Writer="J.K. Rowling"
-    //       Stars="Sun, Andrômeda, Sirius"
-    //       About="I have no idea, watch to discover!"
-    //       imdbScore="9.7"
-    //       Popularity="167"
-    //       PopularityDelta="-21"
-    //     />
-    //   </div>
-    // ),
   },
   {
     path: "/movie/:movieId",
