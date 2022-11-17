@@ -17,7 +17,9 @@ export const setMovieScore = async (movieId: string, score: ScoreType) => {
     }
   );
   if (!response.ok) {
-    console.error(response);
-    throw new Error("Something went wrong when calling api to setMovieScore");
+    if (response.status === 403) {
+      throw new Error("Auth error");
+    }
+    throw new Error("Problema ao chamar api");
   }
 };
