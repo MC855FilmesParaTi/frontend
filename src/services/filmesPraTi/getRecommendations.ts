@@ -30,6 +30,12 @@ export const getRecommendations = async (): Promise<
       },
     }
   );
+  if (!response.ok) {
+    if (response.status === 403) {
+      throw new Error("Auth error");
+    }
+    throw new Error("Problema ao chamar api");
+  }
 
   return response.json() as unknown as Array<RecommendationType>;
 };

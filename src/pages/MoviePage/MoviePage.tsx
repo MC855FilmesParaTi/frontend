@@ -13,7 +13,15 @@ export async function loader({ params }: { params: any }) {
   if (!localStorage.getItem("userToken")) {
     return redirect("/login");
   }
-  return getMovieInfo(params.movieId);
+
+  try {
+    return await getMovieInfo(params.movieId);
+  } catch (e: any) {
+    if (e.message === "Auth error") {
+      localStorage.removeItem("userToken");
+      return redirect("/login");
+    }
+  }
 }
 
 interface MoviePageProps {}

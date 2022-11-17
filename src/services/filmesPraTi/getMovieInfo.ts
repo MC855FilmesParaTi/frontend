@@ -27,6 +27,12 @@ export const getMovieInfo = async (movieId: string) => {
       },
     }
   );
+  if (!response.ok) {
+    if (response.status === 403) {
+      throw new Error("Auth error");
+    }
+    throw new Error("Problema ao chamar api");
+  }
 
   return response.json() as unknown as MovieInfoType;
 

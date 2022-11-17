@@ -9,7 +9,14 @@ export async function loader({ params }: { params: any }) {
   if (!localStorage.getItem("userToken")) {
     return redirect("/login");
   }
-  return getRecommendations();
+  try {
+    return await getRecommendations();
+  } catch (e: any) {
+    if (e.message === "Auth error") {
+      localStorage.removeItem("userToken");
+      return redirect("/login");
+    }
+  }
 }
 
 interface HomePageProperties {}
