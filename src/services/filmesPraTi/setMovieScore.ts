@@ -1,4 +1,4 @@
-export type ScoreType = "like" | "dislike" | "unscored";
+export type ScoreType = "like" | "dislike" | "unscore";
 
 export const setMovieScore = async (movieId: string, score: ScoreType) => {
   const reqBody = {

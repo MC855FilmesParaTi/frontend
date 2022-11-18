@@ -44,10 +44,12 @@ const MoviePage = ({}: MoviePageProps) => {
             <h1 className={styles.TitleContainer}>{movieData.title}</h1>
 
             <RatingBox
+              movieId={movieData.id}
               className={styles.RatingsContainer}
               imdbScore={movieData.imdbScore}
               popularity={movieData.popularity}
               popularityDelta={movieData.popularityDelta}
+              score={movieData.score}
             />
 
             <FilmDescription

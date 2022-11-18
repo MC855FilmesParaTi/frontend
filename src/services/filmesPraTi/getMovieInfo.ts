@@ -12,6 +12,7 @@ export interface MovieInfoType {
   description: string;
   popularity: string;
   popularityDelta: string;
+  score: "like" | "dislike" | "unscore";
 }
 
 export const getMovieInfo = async (movieId: string) => {

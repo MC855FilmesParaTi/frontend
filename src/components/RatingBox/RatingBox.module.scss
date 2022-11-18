@@ -43,10 +43,14 @@
     border: 3px solid black;
     border-radius: 5px;
     transition-duration: 0.4s;
+    &.pressed {
+      background-color: var(--white-color);
+    }
   }
   button:hover {
     background-color: var(--accent-color);
   }
+
   .like {
     img {
       width: 50px;

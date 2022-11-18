@@ -1,8 +1,13 @@
 // MoviePage
 import React from "react";
+import { setMovieScore } from "services/filmesPraTi";
 import styles from "./RatingBox.module.scss";
 
 const RatingBox = (props) => {
+  const setRating = async (rating) => {
+    await setMovieScore(props.movieId, rating);
+    window.location.reload();
+  };
   return (
     // <div className={`${props.className} ${styles.RatingBox}`}>
     <div className={props.className}>
@@ -14,10 +19,24 @@ const RatingBox = (props) => {
       </div>
       <div className={styles.vote}>
         <p>GIVE IT YOUR VOTE</p>
-        <button type="button" className="like">
+        <button
+          type="button"
+          className={`like${
+            props.score === "like" ? " " + styles.pressed : ""
+          }`}
+          onClick={() => setRating(props.score === "like" ? "unscore" : "like")}
+        >
           like
         </button>
-        <button type="button" className="dislike">
+        <button
+          type="button"
+          className={`dislike${
+            props.score === "dislike" ? " " + styles.pressed : ""
+          }`}
+          onClick={() =>
+            setRating(props.score === "dislike" ? "unscore" : "dislike")
+          }
+        >
           dislike
         </button>
       </div>
