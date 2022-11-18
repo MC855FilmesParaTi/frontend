@@ -24,13 +24,13 @@ const SignUpPage = () => {
       return;
     }
     if (password !== passwordConf) {
-      alert("Diferent Passwords");
+      alert("Passwords does not match");
       setPassword("");
       setPasswordConf("");
     } else {
-      const signUpResponse = await signUp(email, profileName, password);
-      localStorage.setItem("userToken", signUpResponse.tokens.access);
-      navigate("/");
+      await signUp(email, profileName, password);
+
+      navigate("/login");
     }
     return;
   };
