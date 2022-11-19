@@ -9,31 +9,34 @@ import MoviePage, { loader as MovieLoader } from "./pages/MoviePage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "pages/SignUpPage";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />,
-    loader: HomeLoader,
-  },
-  {
-    path: "/movie/:movieId",
-    element: <MoviePage />,
-    loader: MovieLoader,
-  },
-  {
-    path: "/search",
-    element: <SearchResultsPage />,
-  },
+const router = createBrowserRouter(
+  [
+    {
+      path: "/movie/:movieId",
+      element: <MoviePage />,
+      loader: MovieLoader,
+    },
+    {
+      path: "/search",
+      element: <SearchResultsPage />,
+    },
 
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path: "/signup",
-    element: <SignUpPage />,
-  },
-]);
+    {
+      path: "/login",
+      element: <LoginPage />,
+    },
+    {
+      path: "/signup",
+      element: <SignUpPage />,
+    },
+    {
+      path: "/",
+      element: <HomePage />,
+      loader: HomeLoader,
+    },
+  ],
+  { basename: "/frontend/" }
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
