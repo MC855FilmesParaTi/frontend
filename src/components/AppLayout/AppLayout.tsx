@@ -2,12 +2,17 @@ import React from "react";
 import logo from "assets/Logo.png";
 import profile from "assets/Profile.svg";
 import styles from "./AppLayout.module.scss";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 interface AppLayoutProps {
   children: React.ReactNode;
 }
 const AppLayout = ({ children }: AppLayoutProps) => {
+  const navigate = useNavigate();
+  function logOut() {
+    localStorage.removeItem("userToken");
+    navigate("/login");
+  }
   return (
     <div className={styles.Container}>
       <header className={styles.Header}>
@@ -19,6 +24,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
           <input type="text" />
         </div>
         <img className={styles.Profile} src={profile}></img>
+        <button className={styles.LogOutButton} type="button" onClick={logOut}>
+          Log Out
+        </button>
       </header>
       <main className={styles.Main}>{children} </main>
     </div>
