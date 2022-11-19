@@ -17,9 +17,11 @@
     gap: 1rem;
     .Logo {
       grid-area: logo;
-      object-fit: cover;
-      width: 100%;
-      max-height: 100%;
+      img {
+        object-fit: cover;
+        width: 100%;
+        max-height: 100%;
+      }
     }
     .MenuButton {
       grid-area: menu;
