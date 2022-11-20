@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.module.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import { SearchResultsPage } from "./pages";
+
+import SearchResultsPage, {
+  loader as SearchLoader,
+} from "pages/SearchResultsPage/SearchResultsPage";
 import HomePage, { loader as HomeLoader } from "pages/HomePage/HomePage";
 import MoviePage, { loader as MovieLoader } from "./pages/MoviePage";
 import LoginPage from "./pages/LoginPage";
@@ -23,6 +26,7 @@ const router = createBrowserRouter(
     {
       path: "/search",
       element: <SearchResultsPage />,
+      loader: SearchLoader,
     },
 
     {

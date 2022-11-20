@@ -1,11 +1,14 @@
 import { MovieInfoType } from "./getMovieInfo";
 import { RecommendationType } from "./getRecommendations";
 import { ScoreType } from "./setMovieScore";
+import { SearchResultType } from "./searchMovies";
 export type MovieInfo = MovieInfoType;
 export type Recommendation = RecommendationType;
 export type Score = ScoreType;
+export type SearchResult = SearchResultType;
 export { getMovieInfo } from "./getMovieInfo";
 export { getRecommendations } from "./getRecommendations";
 export { setMovieScore } from "./setMovieScore";
 export { signUp } from "./signUp";
 export { login } from "./login";
+export { searchMovies } from "./searchMovies";

@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "assets/Logo.png";
 import profile from "assets/Profile.svg";
 import styles from "./AppLayout.module.scss";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 
 interface AppLayoutProps {
   children: React.ReactNode;
 }
 const AppLayout = ({ children }: AppLayoutProps) => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   function logOut() {
     localStorage.removeItem("userToken");
     navigate("/login");
   }
+
+  const doSearch = (searchText: string) => {
+    navigate(`/search?${new URLSearchParams([["q", searchText]]).toString()}`);
+  };
+
+  const [searchText, setSearchText] = useState<string>(
+    searchParams.get("q") ?? ""
+  );
+
   return (
     <div className={styles.Container}>
       <header className={styles.Header}>
@@ -21,9 +31,20 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         </Link>
         <div className={styles.MenuButton}>Menu</div>
         <div className={styles.SearchBar}>
-          <input type="text" />
+          <form
+            onSubmit={(ev) => {
+              ev.preventDefault();
+              doSearch(searchText);
+            }}
+          >
+            <input
+              type="text"
+              value={searchText}
+              onChange={(ev) => setSearchText(ev.target.value)}
+            />
+          </form>
         </div>
-        <img className={styles.Profile} src={profile}></img>
+        <img className={styles.Profile} src={profile} alt=""></img>
         <button className={styles.LogOutButton} type="button" onClick={logOut}>
           Log Out
         </button>
