@@ -25,10 +25,14 @@
     }
     .MenuButton {
       grid-area: menu;
-      text-align: end;
+      display: flex;
+      align-items: center;
+      justify-content: end;
     }
     .SearchBar {
       grid-area: search;
+      display: flex;
+      align-items: center;
       :global(input) {
         width: 100%;
         height: 1.7rem;

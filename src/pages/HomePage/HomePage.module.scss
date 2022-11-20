@@ -38,10 +38,13 @@
 
 .MovieCard {
   position: relative;
+  transform: scale(1);
+  transition: all 0.2s;
 }
 
 .MovieCard:hover {
   transform: scale(1.2);
+  z-index: 100;
 }
 
 .MovieCard__img {
@@ -81,7 +84,8 @@
   opacity: 0;
   transition: opacity 0.25s;
   border-radius: 20px;
-  border: 0.3rem solid #79dfff;
+  transition: border-width 0.25s;
+  border: 0rem solid #79dfff;
 }
 
 .MovieCard__overlay--blur {
@@ -99,6 +103,7 @@
 
 .MovieCard__overlay:hover {
   opacity: 1;
+  border: 0.3rem solid #79dfff;
 }
 
 .MovieCard__overlay:hover > * {

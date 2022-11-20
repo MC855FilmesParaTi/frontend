@@ -23,6 +23,7 @@
       margin-top: 15px;
       border: 0px;
       cursor: pointer;
+      transition: background-color 0.25s;
     }
     .SubmitButton:hover {
       background-color: #d61c4e;
@@ -52,6 +53,8 @@
       margin-bottom: 10px;
       border-radius: 5px;
       padding: 10px;
+      box-shadow: 0 0 0px 0px #d61c4e;
+      transition: box-shadow 0.25s;
     }
     .FormField:focus {
       box-shadow: 0 0 5px 3px #d61c4e;
