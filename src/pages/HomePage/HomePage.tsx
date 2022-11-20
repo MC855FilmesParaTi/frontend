@@ -26,10 +26,9 @@ const HomePage = ({}: HomePageProperties) => {
   return (
     <AppLayout>
       <div className={styles.App}>
-        {/* <img src={logo} className={styles["App-logo"]} alt="logo" /> */}
-        <div className={styles["movRecs"]}>
+        <div className={styles.movRecs}>
           {recommendations.map((rec, index) => (
-            <div key={index} className={styles["recommendations"]}>
+            <div key={index} className={styles.recommendations}>
               <div key={index} className={styles["rec-group-name"]}>
                 {rec.recName}
                 {/* {" "}
@@ -43,26 +42,57 @@ const HomePage = ({}: HomePageProperties) => {
                   </svg>
                 </button> */}
               </div>
-              {rec.recList.map((movie, indexMovie) => (
-                <Link to={`/movie/${movie.id}`} key={indexMovie}>
-                  <div className={styles["MovieCard"]}>
-                    {/* <h2>{movie.title}</h2> */}
-                    <img
-                      className={styles["MovieCard__img"]}
-                      src={movie.poster}
-                      alt={"Poster do filme " + movie.title}
-                    />
-                    <div className={styles["MovieCard__overlay"]}>
-                      <div className={styles["MovieCard__title"]}>
-                        {movie.title}
-                      </div>
-                      {/* <p className="MovieCard__description">
+
+              <div className={styles.CardCarrouselWrapperRelative}>
+                <div className={styles.CardCarrouselWrapper}>
+                  <div className={styles.CardCarrousel}>
+                    {rec.recList.map((movie, indexMovie) => (
+                      <Link to={`/movie/${movie.id}`} key={indexMovie}>
+                        <div className={styles["MovieCard"]}>
+                          {/* <h2>{movie.title}</h2> */}
+                          <img
+                            className={styles["MovieCard__img"]}
+                            src={movie.poster}
+                            alt={"Poster do filme " + movie.title}
+                          />
+                          <div className={styles["MovieCard__overlay"]}>
+                            <div className={styles["MovieCard__title"]}>
+                              {movie.title}
+                            </div>
+                            {/* <p className="MovieCard__description">
                       Here we have a brick wall.
                     </p> */}
-                    </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
-                </Link>
-              ))}
+                </div>
+                <div
+                  className={`${styles.scrollButton} ${styles.scrollLeft}`}
+                  onClick={(ev) => {
+                    const scrollEl =
+                      ev.currentTarget.parentElement?.children[0].children[0];
+                    scrollEl?.scrollTo({
+                      left: (scrollEl?.scrollLeft ?? 0) - 500,
+                    });
+                  }}
+                >
+                  {"<"}
+                </div>
+                <div
+                  className={`${styles.scrollButton} ${styles.scrollRight}`}
+                  onClick={(ev) => {
+                    const scrollEl =
+                      ev.currentTarget.parentElement?.children[0].children[0];
+                    scrollEl?.scrollTo({
+                      left: (scrollEl?.scrollLeft ?? 0) + 500,
+                    });
+                  }}
+                >
+                  {">"}
+                </div>
+              </div>
             </div>
           ))}
         </div>

@@ -44,17 +44,19 @@ const RatingBox = (props) => {
         <p>POPULARITY</p>
         <p>
           <strong>{props.popularity}</strong>{" "}
-          <mark
-            className={styles.popularityDelta}
-            id={
-              props.popularityDelta[0] === "+"
-                ? styles.increased
-                : styles.decreased
-            }
-          >
-            {" "}
-            {props.popularityDelta}
-          </mark>
+          {props.popularityDelta && (
+            <mark
+              className={styles.popularityDelta}
+              id={
+                props.popularityDelta[0] === "+"
+                  ? styles.increased
+                  : styles.decreased
+              }
+            >
+              {" "}
+              {props.popularityDelta}
+            </mark>
+          )}
         </p>
       </div>
     </div>

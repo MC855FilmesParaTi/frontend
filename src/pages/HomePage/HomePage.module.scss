@@ -6,86 +6,139 @@
 
   overflow-y: scroll;
   overflow-x: hidden;
-}
+  .movRecs {
+    margin: 20px 0 20px 0;
 
-.App-logo {
-  height: 3vmin;
-  pointer-events: none;
-}
+    .recommendations {
+      margin: 35px 0;
+      width: 100%;
 
-.movRecs {
-  margin: 20px 5% 20px 5%;
-}
+      .rec-group-name {
+        display: flex;
+        text-align: left;
+        padding: 0 10% 30px 10%;
 
-.refreshButton svg {
-  fill: #d61c4e;
-}
+        font-size: 2.5rem;
+        .refreshButton {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          position: relative;
+          top: 12px;
 
-.refreshButton {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  top: 12px;
-}
+          svg {
+            fill: #d61c4e;
+          }
+        }
+      }
 
-.rec-group-name {
-  display: table-row-group;
-  text-align: left;
-  position: relative;
-  font-size: 2.5rem;
-}
+      .CardCarrouselWrapperRelative {
+        position: relative;
+        // padding: 30px 0;
+        .scrollButton {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-.MovieCard {
-  position: relative;
-  transform: scale(1);
-  transition: all 0.2s;
-}
+          top: calc(50% - 48px);
+          cursor: pointer;
+          width: 48px;
+          height: 48px;
+          background: var(--primary-color);
+          border-radius: 50%;
+          font-weight: bold;
+          font-size: 22px;
+          z-index: 1000;
+        }
+        .scrollLeft {
+          left: 10px;
+        }
+        .scrollRight {
+          right: 10px;
+        }
 
-.MovieCard:hover {
-  transform: scale(1.2);
-  z-index: 100;
-}
+        .CardCarrouselWrapper {
+          overflow: hidden;
+          padding: 0 20px;
+        }
+      }
 
-.MovieCard__img {
-  display: block;
-  width: 100%;
-  border-radius: 20px;
-}
+      .CardCarrousel {
+        padding: 30px 0 50px 0;
+        scroll-behavior: smooth;
+        overflow-x: scroll;
+        overflow-y: visible;
+        display: flex;
+        flex-wrap: nowrap;
+        margin-bottom: -20px;
+        // margin: 20px 0;
+        gap: 30px;
+        width: 100%;
+        min-height: 1px;
+        a {
+          min-width: 15%;
+          width: 15%;
+        }
+        .MovieCard {
+          transform: scale(1);
+          // transition: all 0.2s;
+          &:hover {
+            // position: absolute;
+            transform: scale(1.2);
+            z-index: 100;
+          }
 
-.recommendations {
-  display: table;
-  margin: 35px 0;
-  width: 100%;
-}
-.recommendations a {
-  width: 15%;
-  float: left;
-  padding: 3% 5% 0% 0%;
-}
+          .MovieCard__img {
+            display: block;
+            width: 100%;
+            border-radius: 20px;
+          }
+          .MovieCard__overlay {
+            position: absolute;
+            top: 0;
+            left: -5px;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0) 30%,
+              rgb(0 0 0 / 90%)
+            );
+            color: #ffffff;
+            font-family: "Quicksand", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            opacity: 0;
+            transition: opacity 0.25s;
+            border-radius: 20px;
+            transition: border-width 0.25s;
+            border: 0rem solid #79dfff;
 
-.MovieCard__overlay {
-  position: absolute;
-  top: 0;
-  left: -5px;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 30%,
-    rgb(0 0 0 / 90%)
-  );
-  color: #ffffff;
-  font-family: "Quicksand", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  opacity: 0;
-  transition: opacity 0.25s;
-  border-radius: 20px;
-  transition: border-width 0.25s;
-  border: 0rem solid #79dfff;
+            &:hover {
+              opacity: 1;
+              border: 0.3rem solid #79dfff;
+            }
+
+            & > * {
+              transform: translateY(20px);
+              transition: transform 0.25s;
+            }
+
+            &:hover > * {
+              transform: translateY(0);
+            }
+            .MovieCard__title {
+              font-size: 130%;
+              margin-bottom: 10%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .MovieCard__overlay--blur {
@@ -94,25 +147,6 @@
 
 .MovieCard__overlay--primary {
   background: #009578;
-}
-
-.MovieCard__overlay > * {
-  transform: translateY(20px);
-  transition: transform 0.25s;
-}
-
-.MovieCard__overlay:hover {
-  opacity: 1;
-  border: 0.3rem solid #79dfff;
-}
-
-.MovieCard__overlay:hover > * {
-  transform: translateY(0);
-}
-
-.MovieCard__title {
-  font-size: 130%;
-  margin-bottom: 10%;
 }
 
 .MovieCard__description {
