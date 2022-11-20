@@ -14,6 +14,7 @@ export const setMovieScore = async (movieId: string, score: ScoreType) => {
         Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
       body: JSON.stringify(reqBody),
+      signal: AbortSignal.timeout(10000),
     }
   );
   if (!response.ok) {

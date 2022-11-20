@@ -23,6 +23,7 @@ export const login = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify(reqBody),
+      signal: AbortSignal.timeout(10000),
     }
   );
   if (!response.ok) {

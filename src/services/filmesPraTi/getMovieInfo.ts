@@ -26,6 +26,7 @@ export const getMovieInfo = async (movieId: string) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
+      signal: AbortSignal.timeout(10000),
     }
   );
   if (!response.ok) {

@@ -57,6 +57,7 @@
     ]
   },
   "devDependencies": {
+    "@typescript/lib-dom": "npm:@types/web@^0.0.80",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "gh-pages": "^4.0.0",
