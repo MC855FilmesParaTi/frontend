@@ -27,6 +27,10 @@ const SignUpPage = () => {
       alert("Passwords does not match");
       setPassword("");
       setPasswordConf("");
+    } else if (password.length < 8) {
+      alert("Passwords must have at least 8 characters");
+      setPassword("");
+      setPasswordConf("");
     } else {
       await signUp(email, profileName, password);
 
