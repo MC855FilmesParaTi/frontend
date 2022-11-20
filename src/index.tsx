@@ -9,6 +9,10 @@ import MoviePage, { loader as MovieLoader } from "./pages/MoviePage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "pages/SignUpPage";
 
+if (window.location.pathname === "/frontend") {
+  window.history.replaceState(undefined, "", "/frontend/");
+}
+
 const router = createBrowserRouter(
   [
     {
