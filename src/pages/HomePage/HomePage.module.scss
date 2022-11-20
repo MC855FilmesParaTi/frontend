@@ -34,7 +34,6 @@
 
       .CardCarrouselWrapperRelative {
         position: relative;
-        // padding: 30px 0;
         .scrollButton {
           position: absolute;
           display: flex;
@@ -65,26 +64,24 @@
       }
 
       .CardCarrousel {
-        padding: 30px 0 50px 0;
+        padding: 35px 0 55px 0;
         scroll-behavior: smooth;
         overflow-x: scroll;
         overflow-y: visible;
         display: flex;
         flex-wrap: nowrap;
         margin-bottom: -20px;
-        // margin: 20px 0;
         gap: 30px;
         width: 100%;
         min-height: 1px;
         a {
-          min-width: 15%;
+          min-width: min(15%, 210px);
           width: 15%;
+          max-width: 210px;
         }
         .MovieCard {
           transform: scale(1);
-          // transition: all 0.2s;
           &:hover {
-            // position: absolute;
             transform: scale(1.2);
             z-index: 100;
           }
